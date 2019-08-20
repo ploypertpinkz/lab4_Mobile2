@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private val myName: MyName = MyName("Ploy Jearawong")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             nicknameText.setOnClickListener {
                 updateNickname(it)
             }
+            this.binding.myName = this@MainActivity.myName
         }
+
 
     }
 
@@ -63,6 +65,6 @@ class MainActivity : AppCompatActivity() {
             //hide keyboard
             val inputMethodManger = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManger.hideSoftInputFromWindow(view.windowToken, 0)
-            }
         }
+    }
 }
